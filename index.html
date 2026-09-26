@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VCT Champions 2026 • Dashboard</title>
+<style>
+:root{--bg:#f4f6fb;--panel:#fff;--text:#18202a;--muted:#6b7280;--line:#e5e7eb;--accent:#ff4655;--accent2:#7c3aed;--good:#16a34a;--warn:#d97706;--shadow:0 12px 30px rgba(20,25,40,.08)}
+[data-theme="dark"]{--bg:#0b0f16;--panel:#111827;--text:#f3f4f6;--muted:#9ca3af;--line:#263244;--shadow:0 12px 30px rgba(0,0,0,.28)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
+button,input,select{font:inherit}button{cursor:pointer}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--panel) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topin{max-width:1450px;margin:auto;padding:14px 20px;display:flex;align-items:center;gap:16px}
+.logo{font-weight:900;letter-spacing:.4px}.logo b{color:var(--accent)}
+.live{margin-left:auto;font-size:12px;padding:6px 9px;border-radius:999px;background:rgba(22,163,74,.12);color:var(--good);font-weight:800}
+.theme{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:10px;padding:8px 11px}
+.layout{max-width:1450px;margin:auto;padding:22px 20px 50px;display:grid;grid-template-columns:230px 1fr;gap:20px}
+.side{position:sticky;top:78px;height:max-content}.side button{display:flex;width:100%;gap:10px;align-items:center;border:0;background:transparent;color:var(--muted);padding:12px;border-radius:10px;text-align:left;margin-bottom:5px}.side button:hover,.side button.active{background:rgba(255,70,85,.1);color:var(--accent);font-weight:800}
+main{min-width:0}.hero{background:linear-gradient(135deg,#171d2a,#261521);color:#fff;border-radius:18px;padding:25px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;right:-120px;top:-150px;background:rgba(255,70,85,.2)}.hero h1{margin:0 0 8px;font-size:clamp(25px,3vw,40px)}.hero p{margin:0;color:#cbd5e1;max-width:760px}.hero .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.1);font-size:12px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}.kpi{font-size:26px;font-weight:900;margin-top:5px}.label{font-size:12px;color:var(--muted)}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}.toolbar input,.toolbar select{background:var(--panel);color:var(--text);border:1px solid var(--line);padding:10px 12px;border-radius:10px}.btn{background:var(--accent);color:#fff;border:0;border-radius:10px;padding:10px 13px;font-weight:800}.btn.secondary{background:var(--panel);color:var(--text);border:1px solid var(--line)}
+.section{display:none}.section.active{display:block}.section h2{margin:22px 0 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:13px}.team{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px;transition:.18s}.team:hover{transform:translateY(-2px);box-shadow:var(--shadow)}.teamhead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.badge{font-size:11px;border-radius:999px;padding:5px 8px;background:rgba(124,58,237,.12);color:#8b5cf6;font-weight:800}.players{margin-top:12px;display:grid;gap:7px}.player{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-top:1px solid var(--line)}.player small{color:var(--muted)}.player strong{font-size:13px}.player .role{font-size:10px;color:var(--muted);display:block}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}.scroll{overflow:auto;border-radius:14px}th,td{padding:10px 11px;border-bottom:1px solid var(--line);font-size:12px;text-align:left;white-space:nowrap}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em;background:color-mix(in srgb,var(--panel) 90%,var(--bg))}tr:hover td{background:rgba(127,127,127,.04)}
+.matchgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:13px}.match{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px}.matchtop{display:flex;justify-content:space-between;color:var(--muted);font-size:11px}.versus{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin:15px 0}.versus div:nth-child(1){text-align:right}.score{font-size:24px;font-weight:900}.result{font-weight:900}.upcoming{color:var(--warn)}.done{color:var(--good)}.live2{color:var(--accent)}
+.bracket{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;overflow:auto;padding-bottom:8px}.round{min-width:210px}.round h3{font-size:12px;color:var(--muted);margin:0 0 8px}.slot{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:11px;margin:0 0 12px}.slot b{display:block;font-size:12px;margin:4px 0}.slot span{font-size:10px;color:var(--muted)}
+.progress{height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:10px}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0}
+.note{font-size:12px;color:var(--muted);line-height:1.5}.source{font-size:11px;color:var(--muted);margin-top:18px}.source a{color:var(--accent);text-decoration:none}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;align-items:center;justify-content:center;z-index:50;padding:18px}.modal.open{display:flex}.modalbox{background:var(--panel);border:1px solid var(--line);border-radius:16px;max-width:900px;width:100%;max-height:88vh;overflow:auto;padding:20px}.close{float:right;background:transparent;color:var(--muted);border:0;font-size:22px}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}.side{position:static;display:flex;overflow:auto;gap:5px}.side button{white-space:nowrap;width:auto}.cards{grid-template-columns:repeat(2,1fr)}.bracket{grid-template-columns:repeat(4,210px)}}@media(max-width:600px){.cards{grid-template-columns:1fr 1fr}.hero{padding:19px}.layout{padding:12px}.topin{padding:12px}.cards .kpi{font-size:21px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin"><div class="logo">VCT <b>CHAMPIONS 2026</b></div><span class="live">● SNAPSHOT 26/09/2026</span><button class="theme" id="theme">☾ / ☀</button></div></header>
+<div class="layout">
+<nav class="side">
+<button class="active" data-tab="dashboard">⌂ Dashboard</button>
+<button data-tab="times">◈ Times & jogadores</button>
+<button data-tab="stats">▦ Estatísticas</button>
+<button data-tab="matches">⚔ Partidas</button>
+<button data-tab="groups">◫ Grupos</button>
+<button data-tab="playoffs">♜ Mata-mata</button>
+</nav>
+<main>
+<section id="dashboard" class="section active">
+<div class="hero"><h1>Champions Shanghai 2026</h1><p>Painel interativo do VALORANT Champions 2026, com equipes, elencos, estatísticas de jogadores, resultados, calendário e chaveamento.</p><div class="meta"><span class="pill">24/09 → 18/10/2026</span><span class="pill">Shanghai</span><span class="pill">US$ 2,25 mi</span><span class="pill">16 equipes</span></div></div>
+<div class="cards">
+<div class="card"><div class="label">Equipes</div><div class="kpi">16</div><div class="label">4 regiões</div></div>
+<div class="card"><div class="label">Partidas de grupos</div><div class="kpi">24</div><div class="label">Bo3</div></div>
+<div class="card"><div class="label">Playoffs</div><div class="kpi">8</div><div class="label">eliminação dupla</div></div>
+<div class="card"><div class="label">Progresso do evento</div><div class="kpi" id="pct">—</div><div class="progress"><i id="bar"></i></div></div>
+</div>
+<h2>Resumo ao vivo</h2><div id="dashMatches" class="matchgrid"></div>
+<p class="note">O placar acima é um retrato do momento da coleta. Partidas futuras aparecem como TBD quando seus participantes dependem de resultados anteriores.</p>
+</section>
+
+<section id="times" class="section"><h2>Times e jogadores</h2><div class="toolbar"><input id="teamSearch" placeholder="Buscar time ou jogador…"><select id="regionFilter"><option value="">Todas as regiões</option><option>Americas</option><option>EMEA</option><option>China</option><option>Pacific</option></select></div><div id="teams" class="grid"></div></section>
+
+<section id="stats" class="section"><h2>Estatísticas dos jogadores</h2><div class="toolbar"><input id="statSearch" placeholder="Buscar jogador…"><select id="statTeam"><option value="">Todos os times</option></select><select id="statSort"><option value="rating">Rating ↓</option><option value="acs">ACS ↓</option><option value="kd">K:D ↓</option><option value="adr">ADR ↓</option><option value="kast">KAST ↓</option></select></div><div class="scroll"><table><thead><tr><th>Jogador</th><th>Time</th><th>Mapas</th><th>R</th><th>ACS</th><th>K:D</th><th>KAST</th><th>ADR</th><th>KPR</th><th>APR</th><th>FK:FD</th><th>K/D/A</th></tr></thead><tbody id="statsBody"></tbody></table></div><p class="note">“—” significa que o jogador ainda não acumulou estatísticas no Champions nesta fotografia dos dados.</p></section>
+
+<section id="matches" class="section"><h2>Partidas</h2><div class="toolbar"><select id="matchFilter"><option value="">Todas</option><option value="completed">Concluídas</option><option value="live">Ao vivo</option><option value="upcoming">Próximas</option></select><input id="matchSearch" placeholder="Buscar equipe…"></div><div id="matchesGrid" class="matchgrid"></div></section>
+
+<section id="groups" class="section"><h2>Fase de grupos</h2><p class="note">Formato GSL: quatro grupos de quatro; cada série é Bo3 e as duas melhores equipes avançam aos playoffs.</p><div id="groupsGrid" class="grid"></div></section>
+
+<section id="playoffs" class="section"><h2>Chaveamento dos playoffs</h2><p class="note">Eliminação dupla. A Final da Chave Inferior e a Grande Final são Bo5; demais séries são Bo3.</p><div class="bracket" id="bracket"></div></section>
+
+<div class="source">Fontes de referência: <a href="https://valorantesports.com/pt-BR/tournament/115576361459045501/overview" target="_blank">Riot Games / VALORANT Esports</a> · <a href="https://www.vlr.gg/event/2766/" target="_blank">VLR.gg</a>. Dados coletados em 26/09/2026; resultados e estatísticas mudam durante o evento.</div>
+</main></div>
+
+<div class="modal" id="modal"><div class="modalbox"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+<script>
+let teams=[
+["100 Thieves","Americas","A",["Asuna","bang","Cryocells","vora","Timotino"]],
+["T1","Pacific","A",["stax","BuZz","Munchkin","Meteor","iZu"]],
+["JD Gaming","China","A",["jkuro","BerLIN","Yuicaw","zhe","crownfisher"]],
+["FUT Esports","EMEA","A",["sociablEE","yetujey","xeus","KROSTALY","s0pp"]],
+["Global Esports","Pacific","B",["Autumn","UdoTan","Kr1stal","xavi8k","PatMen"]],
+["Team Vitality","EMEA","B",["Chronicle","Derke","PROFEK","Jamppi","Sayonara"]],
+["LOUD","Americas","B",["Darker","DaviH","lukxo","erde","tkzin"]],
+["EDward Gaming","China","B",["nobody","ZmjjKK","Smoggy","CHICHOO","Jieni7"]],
+["TYLOO","China","C",["SiuFatBB","splash","Scales","slowly","Erv"]],
+["G2 Esports","Americas","C",["BABYBAY","valyn","jawgemo","leaf","trent"]],
+["Team Liquid","EMEA","C",["nAts","trexx","Kicks","kamo","GSR"]],
+["Paper Rex","Pacific","C",["Jinggg","invy","f0rsakeN","d4v41","something"]],
+["Karmine Corp","EMEA","D",["SUYGETSU","Avez","dos9","LewN","N4RRATE"]],
+["Nongshim RedForce","Pacific","D",["Rb","Dambi","Francis","Ivy","Xross"]],
+["NRG","Americas","D",["brawk","mada","skuba","Ethan","keiko"]],
+["Xi Lai Gaming","China","D",["NoMan","Rarga","WsLeo","Lysoar","happywei"]]
+];
+const roles={trent:"Flex / iniciador",N4RRATE:"Duelista / flex",mada:"Duelista",Avez:"Iniciador / flex",something:"Duelista",brawk:"Flex",skuba:"Controlador",valyn:"IGL / controlador",keiko:"Flex",BABYBAY:"Duelista",leaf:"Flex",Jamppi:"Duelista / flex",xavi8k:"Flex",PROFEK:"Iniciador",dos9:"Sentinela",Ethan:"Iniciador / flex",GSR:"Duelista",d4v41:"Duelista / flex",invy:"Iniciador",PatMen:"Sentinela / flex",LewN:"Flex",Kr1stal:"Iniciador",SUYGETSU:"Controlador / sentinela",Chronicle:"Flex",jawgemo:"Duelista",kamo:"Duelista",Xross:"Sentinela",nAts:"Sentinela / controlador",trexx:"Iniciador",UdoTan:"Flex",Derke:"Duelista",f0rsakeN:"Controlador / flex",Sayonara:"Iniciador",Kicks:"Flex",Scales:"Sentinela / flex",Francis:"Iniciador",Jinggg:"Duelista",Rb:"Duelista / flex",WsLeo:"Sentinela",Erv:"Controlador",slowly:"Sentinela",SiuFatBB:"Iniciador",Lysoar:"Iniciador",happywei:"Flex",Dambi:"Iniciador",Ivy:"Sentinela"};
+let stats=[
+["trent","G2 Esports",2,1.66,287,2.24,91,174.1,1.09,.57,"—","38/17/20"],["N4RRATE","Karmine Corp",2,1.62,313,2.05,89,194,.1+1.01,.31,"5.00","39/19/11"],["mada","NRG",2,1.39,236,1.48,88,148.3,.83,.39,"2.25","34/23/16"],["Avez","Karmine Corp",2,1.39,243,1.94,83,154.5,.94,.29,"2.00","33/17/10"],["something","Paper Rex",3,1.38,245,1.76,75,149.7,.97,.13,"1.00","58/33/8"],["brawk","NRG",2,1.22,227,1.39,80,146.9,.78,.29,"3.00","32/23/12"],["skuba","NRG",2,1.22,196,1.36,80,129.3,.73,.34,".60","30/22/14"],["valyn","G2 Esports",2,1.21,235,1.43,80,147.1,.86,.37,"1.50","30/21/13"],["keiko","NRG",2,1.21,209,1.33,80,132,.78,.24,"1.00","32/24/10"],["BABYBAY","G2 Esports",2,1.15,185,1.47,71,119,.71,.14,"1.00","25/17/5"],["leaf","G2 Esports",2,1.15,198,1.14,80,125.5,.69,.34,"5.00","24/21/12"],["Jamppi","Team Vitality",3,1.15,244,1.25,71,151,.87,.25,"2.33","60/48/17"],["xavi8k","Global Esports",3,1.12,202,1.10,61,126.2,.78,.38,".83","54/49/26"],["PROFEK","Team Vitality",3,1.09,208,1.09,77,138.3,.72,.42,".75","50/46/29"],["dos9","Karmine Corp",2,1.07,149,1.25,83,86.1,.57,.54,"—","20/16/19"],["Ethan","NRG",2,1.06,157,1.09,85,102.6,.61,.46,"3.00","25/23/19"],["GSR","Team Liquid",3,1.06,215,1.00,72,145.7,.73,.17,"1.20","44/44/10"],["d4v41","Paper Rex",3,1.05,200,1.28,75,125.4,.77,.12,"1.67","46/36/7"],["invy","Paper Rex",3,1.04,208,1.05,72,136.5,.68,.43,"7.00","41/39/26"],["PatMen","Global Esports",3,1.04,203,.94,77,137.4,.71,.41,"1.00","49/52/28"],["LewN","Karmine Corp",2,1.04,220,1.23,83,150.5,.77,.29,"2.00","27/22/10"],["Kr1stal","Global Esports",3,1.02,196,.85,65,143.3,.64,.41,"1.50","44/52/28"],["SUYGETSU","Karmine Corp",2,1.00,160,1.11,74,103.9,.60,.29,"1.50","21/19/10"],["Chronicle","Team Vitality",3,.98,235,1.04,64,153.9,.77,.28,".55","53/51/19"],["jawgemo","G2 Esports",2,.96,218,1.13,80,154.5,.77,.31,".75","27/24/11"],["kamo","Team Liquid",3,.96,247,.98,70,161.7,.82,.17,".57","49/50/10"],["Xross","Nongshim RedForce",2,.95,188,.93,76,131.8,.66,.20,"1.00","27/29/8"],["nAts","Team Liquid",3,.94,184,.98,60,128.5,.67,.10,".18","40/41/6"],["trexx","Team Liquid",3,.93,189,.84,75,133.2,.63,.37,".75","38/45/22"],["UdoTan","Global Esports",3,.93,228,.91,65,142.2,.77,.19,"1.25","53/58/13"],["Derke","Team Vitality",3,.92,227,1.06,70,143.8,.81,.10,"1.25","56/53/7"],["f0rsakeN","Paper Rex",3,.90,183,.91,75,128.2,.67,.28,"1.20","40/44/17"],["Sayonara","Team Vitality",3,.88,168,.96,70,109.8,.62,.17,".60","43/45/12"],["Kicks","Team Liquid",3,.87,147,.65,65,100.9,.47,.48,"1.33","28/43/29"],["Scales","TYLOO",2,.87,185,.78,54,132.3,.60,.14,"1.50","21/27/5"],["Francis","Nongshim RedForce",2,.84,187,.87,66,125.6,.63,.17,".50","26/30/7"],["Jinggg","Paper Rex",3,.83,190,.81,73,124.1,.63,.32,"1.60","38/47/19"],["Rb","Nongshim RedForce",2,.80,147,.79,61,94,.56,.20,".33","23/29/8"],["WsLeo","Xi Lai Gaming",2,.80,177,.81,63,112.5,.63,.29,".17","22/27/10"],["Erv","TYLOO",2,.79,143,.63,69,96.4,.49,.14,".67","17/27/5"],["slowly","TYLOO",2,.77,193,.77,57,123,.66,.06,".33","23/30/2"],["Rarga","Xi Lai Gaming",2,.69,162,.63,51,94.9,.54,.09,".50","19/30/3"],["SiuFatBB","TYLOO",2,.68,137,.63,54,91.5,.49,.11,".50","17/27/4"],["Lysoar","Xi Lai Gaming",2,.66,146,.60,46,87.6,.51,.17,".00","18/30/6"],["Ivy","Nongshim RedForce",2,.63,147,.68,54,94.4,.51,.10,"1.33","21/31/4"],["splash","TYLOO",2,.62,184,.67,69,114.3,.63,.11,".57","22/33/4"],["happywei","Xi Lai Gaming",2,.62,111,.52,66,80.3,.40,.20,".50","14/27/7"],["Dambi","Nongshim RedForce",2,.60,141,.53,59,93.8,.44,.32,".86","18/34/13"],["NoMan","Xi Lai Gaming",2,.56,147,.48,66,101.5,.43,.14,".50","15/31/5"]
+];
+let matches=[
+["24/09 • 11:00","Team Liquid","Paper Rex","1–2","completed","Opening (C)","Ascent 4–13 · Haven 13–7 · Lotus 9–13"],
+["24/09 • 14:25","TYLOO","G2 Esports","0–2","completed","Opening (C)","Lotus 6–13 · Sunset 7–13"],
+["25/09 • 11:00","Nongshim RedForce","NRG","0–2","completed","Opening (D)","Lotus 10–13 · Split 7–13"],
+["25/09 • 13:25","Karmine Corp","Xi Lai Gaming","2–0","completed","Opening (D)","Mapas: 2–0 (detalhes no relatório da partida)"],
+["26/09 • 11:00","Global Esports","Team Vitality","1–2","completed","Opening (B)","Série concluída"],
+["26/09 • 14:30","LOUD","EDward Gaming","0–0","live","Opening (B)","Ao vivo / estatísticas pendentes"],
+["27/09 • 11:00","100 Thieves","T1","—","upcoming","Opening (A)","Bo3"],
+["27/09 • 14:00","JD Gaming","FUT Esports","—","upcoming","Opening (A)","Bo3"],
+["29/09 • 11:00","G2 Esports","Paper Rex","—","upcoming","Winner's (C)","Bo3"],
+["29/09 • 14:00","Karmine Corp","NRG","—","upcoming","Winner's (D)","Bo3"],
+["30/09 • 11:00","TBD","TBD","—","upcoming","Winner's (A)","Bo3"],
+["30/09 • 14:00","Team Vitality","TBD","—","upcoming","Winner's (B)","Bo3"],
+["01/10 • 11:00","TYLOO","Team Liquid","—","upcoming","Elimination (C)","Bo3"],
+["01/10 • 14:00","Xi Lai Gaming","Nongshim RedForce","—","upcoming","Elimination (D)","Bo3"],
+["02/10 • 11:00","TBD","TBD","—","upcoming","Elimination (A)","Bo3"],
+["02/10 • 14:00","Global Esports","TBD","—","upcoming","Elimination (B)","Bo3"],
+["03/10 • 11:00","TBD","TBD","—","upcoming","Decider (C)","Bo3"],
+["03/10 • 14:00","TBD","TBD","—","upcoming","Decider (D)","Bo3"],
+["04/10 • 11:00","TBD","TBD","—","upcoming","Decider (A)","Bo3"],
+["04/10 • 14:00","TBD","TBD","—","upcoming","Decider (B)","Bo3"],
+["07/10 • 11:00","TBD","TBD","—","upcoming","Upper Quarterfinals","Bo3"],
+["07/10 • 14:00","TBD","TBD","—","upcoming","Upper Quarterfinals","Bo3"],
+["08/10 • 11:00","TBD","TBD","—","upcoming","Upper Quarterfinals","Bo3"],
+["08/10 • 14:00","TBD","TBD","—","upcoming","Upper Quarterfinals","Bo3"],
+["09/10 • 11:00","TBD","TBD","—","upcoming","Lower Round 1","Bo3"],
+["09/10 • 14:00","TBD","TBD","—","upcoming","Lower Round 1","Bo3"],
+["10/10 • 11:00","TBD","TBD","—","upcoming","Upper Semifinals","Bo3"],
+["10/10 • 14:00","TBD","TBD","—","upcoming","Upper Semifinals","Bo3"],
+["11/10 • 11:00","TBD","TBD","—","upcoming","Lower Round 2","Bo3"],
+["11/10 • 14:00","TBD","TBD","—","upcoming","Lower Round 2","Bo3"],
+["16/10 • 08:00","TBD","TBD","—","upcoming","Upper Final","Bo3"],
+["16/10 • 11:00","TBD","TBD","—","upcoming","Lower Round 3","Bo3"],
+["17/10 • 09:00","TBD","TBD","—","upcoming","Lower Final","Bo5"],
+["18/10 • 08:00","TBD","TBD","—","upcoming","Grand Final","Bo5"]
+];
+let groups={A:["100 Thieves","T1","JD Gaming","FUT Esports"],B:["Global Esports","Team Vitality","LOUD","EDward Gaming"],C:["TYLOO","G2 Esports","Team Liquid","Paper Rex"],D:["Karmine Corp","Nongshim RedForce","NRG","Xi Lai Gaming"]};
+
+
+const LIVE_DATA_URL = './data.json';
+const POLL_MS = 5 * 60 * 1000;
+let lastDataHash = '';
+let refreshBusy = false;
+const LIVE_API_NOTE = 'Atualização automática a cada 5 minutos; durante partidas ao vivo o painel tenta sincronizar placar e estatísticas com a fonte de dados.';
+
+async function loadLiveData(reason='manual'){
+  if(refreshBusy) return false;
+  refreshBusy=true;
+  try{
+    const r=await fetch(LIVE_DATA_URL+'?ts='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('data.json HTTP '+r.status);
+    const d=await r.json();
+    const hash=JSON.stringify([d.updatedAt,d.matches,d.stats]);
+    const changed=hash!==lastDataHash;
+    lastDataHash=hash;
+    if(Array.isArray(d.teams)) teams=d.teams;
+    if(Array.isArray(d.stats)) stats=d.stats;
+    if(Array.isArray(d.matches)) matches=d.matches;
+    if(d.groups) groups=d.groups;
+    renderAll();
+    const el=document.getElementById('updatedAt');
+    if(el) el.textContent='Atualizado em '+new Date(d.updatedAt||Date.now()).toLocaleString('pt-BR');
+    const liveCount=matches.filter(m=>m[4]==='live').length;
+    const st=document.getElementById('autoStatus');
+    if(st) st.textContent=(liveCount?'🔴 '+liveCount+' partida(s) ao vivo • ':'🟢 Sem partida ao vivo • ')+'sincronizado '+new Date().toLocaleTimeString('pt-BR')+' • próximo check em 5 min';
+    return changed;
+  }catch(e){
+    console.warn('Não foi possível carregar os dados automáticos; usando o snapshot embutido.',e);
+    const el=document.getElementById('updatedAt');
+    if(el) el.textContent='Modo offline • usando último snapshot disponível';
+    const st=document.getElementById('autoStatus');
+    if(st) st.textContent='🟠 Falha na sincronização • tentando novamente em 5 min';
+    return false;
+  } finally { refreshBusy=false; }
+}
+
+// Sincronização contínua: 5 min no navegador. O GitHub Actions também atualiza data.json a cada 5 min.
+setInterval(()=>loadLiveData('interval'), POLL_MS);
+window.addEventListener('focus',()=>loadLiveData('focus'));
+document.addEventListener('visibilitychange',()=>{ if(!document.hidden) loadLiveData('visible'); });
+
+function renderAll(){
+  renderTeams(); renderStats(); renderMatches(); renderGroups();
+  const total=teams.length;
+  const completed=matches.filter(m=>m[4]==='completed').length;
+  const live=matches.filter(m=>m[4]==='live').length;
+  const upcoming=matches.filter(m=>m[4]==='upcoming').length;
+  const e=document.getElementById('liveSummary');
+  if(e) e.textContent=`${total} times • ${completed} concluídas • ${live} ao vivo • ${upcoming} próximas`;
+}
+
+function teamObj(n){return teams.find(t=>t[0]===n)}
+function renderTeams(){
+ const q=document.getElementById('teamSearch').value.toLowerCase(), reg=document.getElementById('regionFilter').value;
+ document.getElementById('teams').innerHTML=teams.filter(t=>(!reg||t[1]===reg)&&((t[0]+" "+t[3].join(" ")).toLowerCase().includes(q))).map(t=>`
+ <div class="team"><div class="teamhead"><div><b>${t[0]}</b><div class="label">${t[1]}</div></div><span class="badge">Grupo ${t[2]}</span></div>
+ <div class="players">${t[3].map(p=>`<div class="player"><div><strong>${p}</strong><span class="role">${roles[p]||"Função não informada na fonte"}</span></div><small>${statFor(p)?'● com stats':'○ sem stats'}</small></div>`).join("")}</div>
+ <button class="btn secondary" style="margin-top:12px;width:100%" onclick="teamDetails('${t[0]}')">Ver elenco e estatísticas</button></div>`).join("");
+}
+function statFor(p){return stats.find(s=>s[0]===p)}
+function renderStats(){
+ const q=document.getElementById('statSearch').value.toLowerCase(), tf=document.getElementById('statTeam').value, sort=document.getElementById('statSort').value;
+ let rows=stats.filter(s=>(!tf||s[1]===tf)&&s[0].toLowerCase().includes(q));
+ const ix={rating:3,acs:4,kd:5,adr:7,kast:6}[sort]; rows.sort((a,b)=>Number(b[ix])-Number(a[ix]));
+ document.getElementById('statsBody').innerHTML=rows.map(s=>`<tr><td><b>${s[0]}</b><br><span class="label">${roles[s[0]]||''}</span></td><td>${s[1]}</td><td>${s[2]}</td><td>${s[3]}</td><td>${s[4]}</td><td>${s[5]}</td><td>${s[6]}%</td><td>${s[7]}</td><td>${s[8]}</td><td>${s[9]}</td><td>${s[10]}</td><td>${s[11]}</td></tr>`).join("");
+}
+function matchCard(m){
+ let cls=m[4]==='completed'?'done':m[4]==='live'?'live2':'upcoming', label=m[4]==='completed'?'CONCLUÍDA':m[4]==='live'?'AO VIVO':'PRÓXIMA';
+ return `<div class="match"><div class="matchtop"><span>${m[0]} • ${m[5]}</span><b class="${cls}">${label}</b></div><div class="versus"><div><b>${m[1]}</b></div><div class="score">${m[3]}</div><div><b>${m[2]}</b></div></div><div class="label">${m[6]}</div>${m[4]!=='upcoming'?`<button class="btn secondary" style="margin-top:12px;width:100%" onclick="matchDetails(${matches.indexOf(m)})">Abrir estatísticas</button>`:''}</div>`
+}
+function renderMatches(){
+ const f=document.getElementById('matchFilter').value,q=document.getElementById('matchSearch').value.toLowerCase();
+ document.getElementById('matchesGrid').innerHTML=matches.filter(m=>(!f||m[4]===f)&&(!q||(m[1]+" "+m[2]).toLowerCase().includes(q))).map(matchCard).join("");
+ document.getElementById('dashMatches').innerHTML=matches.filter(m=>m[4]!=='upcoming').slice(-6).map(matchCard).join("");
+}
+function renderGroups(){
+ document.getElementById('groupsGrid').innerHTML=Object.entries(groups).map(([g,arr])=>`<div class="team"><div class="teamhead"><b>Grupo ${g}</b><span class="badge">GSL</span></div>${arr.map(n=>{let rec=n==="G2 Esports"?"1–0":n==="Paper Rex"?"1–0":n==="NRG"?"1–0":n==="Karmine Corp"?"1–0":n==="Team Vitality"?"1–0":n==="TYLOO"?"0–1":n==="Team Liquid"?"0–1":n==="Nongshim RedForce"?"0–1":n==="Xi Lai Gaming"?"0–1":n==="Global Esports"?"0–1":n==="EDward Gaming"?"0–0":"0–0";return `<div class="player"><strong>${n}</strong><small>${rec}</small></div>`}).join("")}</div>`).join("");
+}
+function renderBracket(){
+ const cols=[
+ ["Classificados do Grupo A","1º A","2º A"],["Classificados do Grupo B","1º B","2º B"],["Classificados do Grupo C","1º C","2º C"],["Classificados do Grupo D","1º D","2º D"]];
+ document.getElementById('bracket').innerHTML=cols.map(c=>`<div class="round"><h3>${c[0]}</h3><div class="slot"><b>${c[1]}</b><span>seed</span></div><div class="slot"><b>${c[2]}</b><span>seed</span></div><h3 style="margin-top:20px">Chave de eliminação</h3><div class="slot"><b>TBD × TBD</b><span>perdedor / perdedor</span></div></div>`).join("");
+}
+function teamDetails(n){
+ const t=teamObj(n), ss=stats.filter(s=>s[1]===n);
+ document.getElementById('modalContent').innerHTML=`<h2>${n}</h2><p class="note">${t[1]} • Grupo ${t[2]}</p><div class="scroll"><table><thead><tr><th>Jogador</th><th>Função</th><th>Mapas</th><th>Rating</th><th>ACS</th><th>K:D</th><th>KAST</th><th>ADR</th><th>K/D/A</th></tr></thead><tbody>${t[3].map(p=>{let s=statFor(p);return `<tr><td><b>${p}</b></td><td>${roles[p]||"—"}</td><td>${s?s[2]:"—"}</td><td>${s?s[3]:"—"}</td><td>${s?s[4]:"—"}</td><td>${s?s[5]:"—"}</td><td>${s?s[6]+"%":"—"}</td><td>${s?s[7]:"—"}</td><td>${s?s[11]:"—"}</td></tr>`}).join("")}</tbody></table></div>`;
+ document.getElementById('modal').classList.add('open');
+}
+function matchDetails(i){
+ const m=matches[i];
+ const involved=stats.filter(s=>s[1]===m[1]||s[1]===m[2]);
+ document.getElementById('modalContent').innerHTML=`<h2>${m[1]} ${m[3]} ${m[2]}</h2><p class="note">${m[0]} • ${m[5]} • ${m[6]}</p><h3>Estatísticas individuais disponíveis</h3><div class="scroll"><table><thead><tr><th>Jogador</th><th>Time</th><th>R</th><th>ACS</th><th>K:D</th><th>KAST</th><th>ADR</th><th>K/D/A</th></tr></thead><tbody>${involved.map(s=>`<tr><td>${s[0]}</td><td>${s[1]}</td><td>${s[3]}</td><td>${s[4]}</td><td>${s[5]}</td><td>${s[6]}%</td><td>${s[7]}</td><td>${s[11]}</td></tr>`).join("")}</tbody></table></div><p class="note">A tabela usa o agregado do jogador no Champions na data da coleta; quando a página da partida ainda não disponibiliza um quadro completo, o dashboard não inventa valores.</p>`;
+ document.getElementById('modal').classList.add('open');
+}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+document.querySelectorAll('.side button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.side button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(b.dataset.tab).classList.add('active')});
+document.getElementById('theme').onclick=()=>{document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'':'dark';localStorage.setItem('theme',document.documentElement.dataset.theme)};
+if(localStorage.getItem('theme')==='dark')document.documentElement.dataset.theme='dark';
+['teamSearch','regionFilter'].forEach(id=>document.getElementById(id).addEventListener('input',renderTeams));
+['statSearch','statTeam','statSort'].forEach(id=>document.getElementById(id).addEventListener('input',renderStats));
+['matchFilter','matchSearch'].forEach(id=>document.getElementById(id).addEventListener('input',renderMatches));
+renderAll();
+loadLiveData('startup');
+
+teams.forEach(t=>{let o=document.createElement('option');o.value=t[0];o.textContent=t[0];document.getElementById('statTeam').appendChild(o)});
+renderTeams();renderStats();renderMatches();renderGroups();renderBracket();
+document.getElementById('pct').textContent=Math.round((6/34)*100)+"%";document.getElementById('bar').style.width=(6/34*100)+"%";
+window.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+</script>
+</body></html>
