@@ -1,4 +1,4 @@
-name: Atualizar VCT Champions 2026
+name: Atualizar VCT Champions 2026 — Live
 
 on:
   schedule:
@@ -8,13 +8,20 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: vct-live-sync
+  cancel-in-progress: true
+
 jobs:
-  update-vct:
+  update:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
 
     steps:
-      - name: Baixar código do repositório
+      - name: Baixar arquivos do repositório
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4
@@ -29,11 +36,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          git fetch origin main
+          git reset --hard origin/main
+
           git add data.json
 
           if git diff --cached --quiet; then
             echo "Nenhuma alteração nos dados."
           else
             git commit -m "Atualização automática VCT Champions 2026"
-            git push
+            git push origin main
           fi
