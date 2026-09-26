@@ -1,199 +1,535 @@
 {
-  "updatedAt": "2026-09-26T13:51:32.350Z",
-  "source": " (teams: fallback) (matches: fallback)",
+  "updatedAt": "2026-09-26T13:26:00Z",
+  "source": "Snapshot inicial; o workflow update-vct.yml atualiza este arquivo diariamente.",
   "teams": [
-    [
-      "100 Thieves",
-      "Americas",
-      "A",
-      [
-        "Asuna",
-        "bang",
-        "Cryocells",
-        "vora",
-        "Timotino"
+    {
+      "name": "100 Thieves",
+      "region": "Americas",
+      "group": "A",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1644966311613_100TVAL.png&resize=128%3A",
+      "players": [
+        {
+          "name": "Asuna",
+          "role": "Duelista / flex",
+          "photo": ""
+        },
+        {
+          "name": "bang",
+          "role": "Controlador / IGL",
+          "photo": ""
+        },
+        {
+          "name": "Cryocells",
+          "role": "Duelista",
+          "photo": ""
+        },
+        {
+          "name": "vora",
+          "role": "Flex",
+          "photo": ""
+        },
+        {
+          "name": "Timotino",
+          "role": "Flex",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "T1",
-      "Pacific",
-      "A",
-      [
-        "stax",
-        "BuZz",
-        "Munchkin",
-        "Meteor",
-        "iZu"
+    },
+    {
+      "name": "T1",
+      "region": "Pacific",
+      "group": "A",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1677137430839_T1_infoboximage1.png&resize=128%3A",
+      "players": [
+        {
+          "name": "stax",
+          "role": "Iniciador / IGL",
+          "photo": ""
+        },
+        {
+          "name": "BuZz",
+          "role": "Duelista",
+          "photo": ""
+        },
+        {
+          "name": "Munchkin",
+          "role": "Controlador",
+          "photo": ""
+        },
+        {
+          "name": "Meteor",
+          "role": "Flex / sentinela",
+          "photo": ""
+        },
+        {
+          "name": "iZu",
+          "role": "Duelista",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "JD Gaming",
-      "China",
-      "A",
-      [
-        "jkuro",
-        "BerLIN",
-        "Yuicaw",
-        "zhe",
-        "crownfisher"
+    },
+    {
+      "name": "JD Gaming",
+      "region": "China",
+      "group": "A",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1707126862498_JDG.png&resize=128%3A",
+      "players": [
+        {
+          "name": "jkuro",
+          "role": "Flex",
+          "photo": ""
+        },
+        {
+          "name": "BerLIN",
+          "role": "Sentinela",
+          "photo": ""
+        },
+        {
+          "name": "Yuicaw",
+          "role": "Duelista",
+          "photo": ""
+        },
+        {
+          "name": "zhe",
+          "role": "Controlador",
+          "photo": ""
+        },
+        {
+          "name": "crownfisher",
+          "role": "Flex",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "FUT Esports",
-      "EMEA",
-      "A",
-      [
-        "sociablEE",
-        "yetujey",
-        "xeus",
-        "KROSTALY",
-        "s0pp"
+    },
+    {
+      "name": "FUT Esports",
+      "region": "EMEA",
+      "group": "A",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1644342678681_FUT_VRL_DARK.png&resize=128%3A",
+      "players": [
+        {
+          "name": "sociablEE",
+          "role": "Sentinela",
+          "photo": ""
+        },
+        {
+          "name": "yetujey",
+          "role": "Iniciador",
+          "photo": ""
+        },
+        {
+          "name": "xeus",
+          "role": "Duelista",
+          "photo": ""
+        },
+        {
+          "name": "KROSTALY",
+          "role": "Controlador",
+          "photo": ""
+        },
+        {
+          "name": "s0pp",
+          "role": "Flex",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "Global Esports",
-      "Pacific",
-      "B",
-      [
-        "Autumn",
-        "UdoTan",
-        "Kr1stal",
-        "xavi8k",
-        "PatMen"
+    },
+    {
+      "name": "Global Esports",
+      "region": "Pacific",
+      "group": "B",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1677137854820_GERedandBlue-WhiteBG.png&resize=128%3A",
+      "players": [
+        {
+          "name": "Autumn",
+          "role": "Iniciador",
+          "photo": ""
+        },
+        {
+          "name": "UdoTan",
+          "role": "Flex",
+          "photo": ""
+        },
+        {
+          "name": "Kr1stal",
+          "role": "Iniciador",
+          "photo": ""
+        },
+        {
+          "name": "xavi8k",
+          "role": "Flex",
+          "photo": ""
+        },
+        {
+          "name": "PatMen",
+          "role": "Sentinela / flex",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "Team Vitality",
-      "EMEA",
-      "B",
-      [
-        "Chronicle",
-        "Derke",
-        "PROFEK",
-        "Jamppi",
-        "Sayonara"
+    },
+    {
+      "name": "Team Vitality",
+      "region": "EMEA",
+      "group": "B",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1722030793680_VITALITY_YELLOW.png&resize=128%3A",
+      "players": [
+        {
+          "name": "Chronicle",
+          "role": "Flex",
+          "photo": ""
+        },
+        {
+          "name": "Derke",
+          "role": "Duelista",
+          "photo": ""
+        },
+        {
+          "name": "PROFEK",
+          "role": "Iniciador",
+          "photo": ""
+        },
+        {
+          "name": "Jamppi",
+          "role": "Duelista / flex",
+          "photo": ""
+        },
+        {
+          "name": "Sayonara",
+          "role": "Iniciador",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "LOUD",
-      "Americas",
-      "B",
-      [
-        "Darker",
-        "DaviH",
-        "lukxo",
-        "erde",
-        "tkzin"
+    },
+    {
+      "name": "LOUD",
+      "region": "Americas",
+      "group": "B",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1644060140569_LOUDGreen.png&resize=128%3A",
+      "players": [
+        {
+          "name": "Darker",
+          "role": "Duelista",
+          "photo": ""
+        },
+        {
+          "name": "DaviH",
+          "role": "Flex",
+          "photo": ""
+        },
+        {
+          "name": "lukxo",
+          "role": "Iniciador",
+          "photo": ""
+        },
+        {
+          "name": "erde",
+          "role": "Controlador",
+          "photo": ""
+        },
+        {
+          "name": "tkzin",
+          "role": "Sentinela",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "EDward Gaming",
-      "China",
-      "B",
-      [
-        "nobody",
-        "ZmjjKK",
-        "Smoggy",
-        "CHICHOO",
-        "Jieni7"
+    },
+    {
+      "name": "EDward Gaming",
+      "region": "China",
+      "group": "B",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1735920597800_edg1.png&resize=128%3A",
+      "players": [
+        {
+          "name": "nobody",
+          "role": "Iniciador",
+          "photo": ""
+        },
+        {
+          "name": "ZmjjKK",
+          "role": "Duelista",
+          "photo": ""
+        },
+        {
+          "name": "Smoggy",
+          "role": "Flex",
+          "photo": ""
+        },
+        {
+          "name": "CHICHOO",
+          "role": "Sentinela",
+          "photo": ""
+        },
+        {
+          "name": "Jieni7",
+          "role": "Controlador",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "TYLOO",
-      "China",
-      "C",
-      [
-        "SiuFatBB",
-        "splash",
-        "Scales",
-        "slowly",
-        "Erv"
+    },
+    {
+      "name": "TYLOO",
+      "region": "China",
+      "group": "C",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1776403069581_TYLLOGO.png&resize=128%3A",
+      "players": [
+        {
+          "name": "SiuFatBB",
+          "role": "Iniciador",
+          "photo": ""
+        },
+        {
+          "name": "splash",
+          "role": "Flex",
+          "photo": ""
+        },
+        {
+          "name": "Scales",
+          "role": "Sentinela / flex",
+          "photo": ""
+        },
+        {
+          "name": "slowly",
+          "role": "Duelista / flex",
+          "photo": ""
+        },
+        {
+          "name": "Erv",
+          "role": "Controlador",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "G2 Esports",
-      "Americas",
-      "C",
-      [
-        "BABYBAY",
-        "valyn",
-        "jawgemo",
-        "leaf",
-        "trent"
+    },
+    {
+      "name": "G2 Esports",
+      "region": "Americas",
+      "group": "C",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1675329807714_G2-Esports-Logo1.png&resize=128%3A",
+      "players": [
+        {
+          "name": "BABYBAY",
+          "role": "Duelista",
+          "photo": ""
+        },
+        {
+          "name": "valyn",
+          "role": "IGL / controlador",
+          "photo": ""
+        },
+        {
+          "name": "jawgemo",
+          "role": "Duelista",
+          "photo": ""
+        },
+        {
+          "name": "leaf",
+          "role": "Flex",
+          "photo": ""
+        },
+        {
+          "name": "trent",
+          "role": "Flex / iniciador",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "Team Liquid",
-      "EMEA",
-      "C",
-      [
-        "nAts",
-        "trexx",
-        "Kicks",
-        "kamo",
-        "GSR"
+    },
+    {
+      "name": "Team Liquid",
+      "region": "EMEA",
+      "group": "C",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1637252586938_teamliquid.png&resize=128%3A",
+      "players": [
+        {
+          "name": "nAts",
+          "role": "Sentinela / controlador",
+          "photo": ""
+        },
+        {
+          "name": "trexx",
+          "role": "Iniciador",
+          "photo": ""
+        },
+        {
+          "name": "Kicks",
+          "role": "Flex",
+          "photo": ""
+        },
+        {
+          "name": "kamo",
+          "role": "Duelista",
+          "photo": ""
+        },
+        {
+          "name": "GSR",
+          "role": "Duelista",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "Paper Rex",
-      "Pacific",
-      "C",
-      [
-        "Jinggg",
-        "invy",
-        "f0rsakeN",
-        "d4v41",
-        "something"
+    },
+    {
+      "name": "Paper Rex",
+      "region": "Pacific",
+      "group": "C",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1630018120582_paper-rex-2021.png&resize=128%3A",
+      "players": [
+        {
+          "name": "Jinggg",
+          "role": "Duelista",
+          "photo": ""
+        },
+        {
+          "name": "invy",
+          "role": "Iniciador",
+          "photo": ""
+        },
+        {
+          "name": "f0rsakeN",
+          "role": "Controlador / flex",
+          "photo": ""
+        },
+        {
+          "name": "d4v41",
+          "role": "Duelista / flex",
+          "photo": ""
+        },
+        {
+          "name": "something",
+          "role": "Duelista",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "Karmine Corp",
-      "EMEA",
-      "D",
-      [
-        "SUYGETSU",
-        "Avez",
-        "dos9",
-        "LewN",
-        "N4RRATE"
+    },
+    {
+      "name": "Karmine Corp",
+      "region": "EMEA",
+      "group": "D",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1651626649157_download1.png&resize=128%3A",
+      "players": [
+        {
+          "name": "SUYGETSU",
+          "role": "Controlador / sentinela",
+          "photo": ""
+        },
+        {
+          "name": "Avez",
+          "role": "Iniciador / flex",
+          "photo": ""
+        },
+        {
+          "name": "dos9",
+          "role": "Sentinela",
+          "photo": ""
+        },
+        {
+          "name": "LewN",
+          "role": "Flex",
+          "photo": ""
+        },
+        {
+          "name": "N4RRATE",
+          "role": "Duelista / flex",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "Nongshim RedForce",
-      "Pacific",
-      "D",
-      [
-        "Rb",
-        "Dambi",
-        "Francis",
-        "Ivy",
-        "Xross"
+    },
+    {
+      "name": "Nongshim RedForce",
+      "region": "Pacific",
+      "group": "D",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1674219422693_NS_.png&resize=128%3A",
+      "players": [
+        {
+          "name": "Rb",
+          "role": "Duelista / flex",
+          "photo": ""
+        },
+        {
+          "name": "Dambi",
+          "role": "Iniciador",
+          "photo": ""
+        },
+        {
+          "name": "Francis",
+          "role": "Iniciador",
+          "photo": ""
+        },
+        {
+          "name": "Ivy",
+          "role": "Sentinela",
+          "photo": ""
+        },
+        {
+          "name": "Xross",
+          "role": "Sentinela",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "NRG",
-      "Americas",
-      "D",
-      [
-        "brawk",
-        "mada",
-        "skuba",
-        "Ethan",
-        "keiko"
+    },
+    {
+      "name": "NRG",
+      "region": "Americas",
+      "group": "D",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1731490666442_NRGWHT.png&resize=128%3A",
+      "players": [
+        {
+          "name": "brawk",
+          "role": "Flex",
+          "photo": ""
+        },
+        {
+          "name": "mada",
+          "role": "Duelista",
+          "photo": ""
+        },
+        {
+          "name": "skuba",
+          "role": "Controlador",
+          "photo": ""
+        },
+        {
+          "name": "Ethan",
+          "role": "Iniciador / flex",
+          "photo": ""
+        },
+        {
+          "name": "keiko",
+          "role": "Flex",
+          "photo": ""
+        }
       ]
-    ],
-    [
-      "Xi Lai Gaming",
-      "China",
-      "D",
-      [
-        "NoMan",
-        "Rarga",
-        "WsLeo",
-        "Lysoar",
-        "happywei"
+    },
+    {
+      "name": "Xi Lai Gaming",
+      "region": "China",
+      "group": "D",
+      "logo": "https://am-a.akamaihd.net/image?f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1735920774181_XLGA.PNG&resize=128%3A",
+      "players": [
+        {
+          "name": "NoMan",
+          "role": "Flex",
+          "photo": ""
+        },
+        {
+          "name": "Rarga",
+          "role": "Duelista",
+          "photo": ""
+        },
+        {
+          "name": "WsLeo",
+          "role": "Sentinela",
+          "photo": ""
+        },
+        {
+          "name": "Lysoar",
+          "role": "Iniciador",
+          "photo": ""
+        },
+        {
+          "name": "happywei",
+          "role": "Flex",
+          "photo": ""
+        }
       ]
-    ]
+    }
   ],
   "stats": [
     [
@@ -1216,5 +1552,6 @@
       "NRG",
       "Xi Lai Gaming"
     ]
-  }
+  },
+  "matchDetails": {}
 }
